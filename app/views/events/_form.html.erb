@@ -1,0 +1,18 @@
+<%= form_for([@user, @user.events.build]) do |event_form| %>  
+  <div class="field">
+    <%= event_form.label :title %><br />
+    <%= event_form.text_field :title %>
+  </div>
+  <div class="field">
+    <%= event_form.label :date %>
+    <%= event_form.date_select  :date %>
+  </div>
+  <div class="field">
+    <%= event_form.label :body %><br />
+    <%= event_form.text_area :body %>
+  </div>
+
+  <div class="actions">
+    <%= event_form.submit %>
+  </div>
+<% end %>

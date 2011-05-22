@@ -1,0 +1,29 @@
+<p class="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%= @user.password %>
+</p>
+
+<h2>Events</h2>
+<%= render :partial => "events/event",
+           :collection => @user.events %>
+ 
+
+<h2>Add an Event:</h2>
+<%= render "events/form" %>
+
+<br /> 
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
