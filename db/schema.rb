@@ -10,22 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110522190704) do
+ActiveRecord::Schema.define(:version => 20110522215758) do
 
-  create_table "events", :force => true do |t|
-    t.string   "title"
+  create_table "entries", :force => true do |t|
     t.date     "date"
-    t.text     "body"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
-  create_table "tags", :force => true do |t|
+  create_table "exercises", :force => true do |t|
     t.string   "name"
-    t.integer  "event_id"
+    t.integer  "reps"
+    t.integer  "weight"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "workout_id"
+    t.integer  "warmup_id"
   end
 
   create_table "users", :force => true do |t|
@@ -38,12 +39,19 @@ ActiveRecord::Schema.define(:version => 20110522190704) do
     t.string   "salt"
   end
 
-  create_table "workouts", :force => true do |t|
-    t.string   "name"
-    t.text     "body"
-    t.integer  "event_id"
+  create_table "warmups", :force => true do |t|
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "entry_id"
+  end
+
+  create_table "workouts", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "entry_id"
   end
 
 end

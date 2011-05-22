@@ -2,10 +2,8 @@
 
 one:
   name: MyString
-  body: MyText
-  event: 
+  description: MyString
 
 two:
   name: MyString
-  body: MyText
-  event: 
+  description: MyString

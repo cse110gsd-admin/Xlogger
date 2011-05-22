@@ -4,8 +4,7 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-
-module ::Xlogger2
+module ::Xlogger
   class Application
     include Rake::DSL
   end
@@ -15,4 +14,4 @@ module ::RakeFileUtils
   extend Rake::FileUtilsExt
 end
 
-Xlogger2::Application.load_tasks
+Xlogger::Application.load_tasks

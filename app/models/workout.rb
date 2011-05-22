@@ -1,3 +1,7 @@
 class Workout < ActiveRecord::Base
-  belongs_to :event
+  
+  validates :name, :presence => true
+  
+  has_many :exercises, :dependent => :destroy
+  belongs_to :entry
 end

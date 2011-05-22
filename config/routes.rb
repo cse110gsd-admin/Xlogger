@@ -1,7 +1,13 @@
-Xlogger2::Application.routes.draw do
-  resources :users do
-    resources :events
-  end
+Xlogger::Application.routes.draw do
+  resources :entries
+
+  resources :warmups
+
+  resources :workouts
+
+  resources :exercises
+
+  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -3,10 +3,10 @@
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
   [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
-  [1m[36mSQL (91.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[36mSQL (87.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
   [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
-  [1m[36mSQL (42.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-  [1m[35mSQL (0.2ms)[0m   SELECT name
+  [1m[36mSQL (42.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
   [1m[36mSQL (0.1ms)[0m  [1m SELECT name
@@ -14,9 +14,9 @@
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
   [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
-Migrating to CreateUsers (20110522173543)
+Migrating to CreateUsers (20110522191550)
   [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "password" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
-  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110522173543')
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110522191550')
   [1m[36mSQL (0.2ms)[0m  [1m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
@@ -35,35 +35,11 @@ Migrating to CreateUsers (20110522173543)
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
   [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
-Migrating to CreateUsers (20110522173543)
-Migrating to AddPasswordToUsers (20110522173704)
+Migrating to CreateUsers (20110522191550)
+Migrating to AddPasswordToUsers (20110522191825)
   [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
   [1m[36mSQL (0.4ms)[0m  [1mALTER TABLE "users" ADD "encrypted_password" varchar(255)[0m
-  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110522173704')
-  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
-  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
-  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [1m[35mSQL (0.1ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
-Migrating to CreateUsers (20110522173543)
-Migrating to AddPasswordToUsers (20110522173704)
-Migrating to AddSaltToUsers (20110522173919)
-  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
-  [1m[36mSQL (0.4ms)[0m  [1mALTER TABLE "users" ADD "salt" varchar(255)[0m
-  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110522173919')
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110522191825')
   [1m[36mSQL (0.2ms)[0m  [1m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
@@ -87,58 +63,453 @@ Migrating to AddSaltToUsers (20110522173919)
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
-  [1m[35mSQL (90.1ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "password" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255)) 
-  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+  [1m[35mSQL (127.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "password" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255)) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
   [1m[35mSQL (42.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
   [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
-  [1m[35mSQL (51.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[35mSQL (51.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
   [1m[36mSQL (0.2ms)[0m  [1m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
   [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
-  [1m[36mSQL (50.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522173919')[0m
-  [1m[35mSQL (84.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110522173543')
-  [1m[36mSQL (109.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522173704')[0m
-
-
-Started GET "/users" for 127.0.0.1 at Sun May 22 10:40:59 -0700 2011
-  Processing by UsersController#index as HTML
-  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
-Rendered users/index.html.erb within layouts/application (2.3ms)
-Completed 200 OK in 29ms (Views: 5.7ms | ActiveRecord: 0.4ms)
-
-
-Started GET "/users/new" for 127.0.0.1 at Sun May 22 10:41:00 -0700 2011
-  Processing by UsersController#new as HTML
-Rendered users/_form.html.erb (68.9ms)
-Rendered users/new.html.erb within layouts/application (72.0ms)
-Completed 200 OK in 84ms (Views: 75.5ms | ActiveRecord: 0.0ms)
-
-
-Started POST "/users" for 127.0.0.1 at Sun May 22 10:41:17 -0700 2011
-  Processing by UsersController#create as HTML
-  Parameters: {"commit"=>"Create User", "authenticity_token"=>"3kL4I9iFTuDILyfDd85wQPJ8f8/feG6LER9D7zc0lT0=", "utf8"=>"✓", "user"=>{"name"=>"William Holloway", "password"=>"[FILTERED]", "email"=>"wjdhollow@gmail.com"}}
-  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "users" WHERE ("users"."name" = 'William Holloway') LIMIT 1
+  [1m[36mSQL (42.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522191825')[0m
+  [1m[35mSQL (42.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110522191550')
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110522191550)
+Migrating to AddPasswordToUsers (20110522191825)
+Migrating to AddSaltToUsers (20110522192715)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1mALTER TABLE "users" ADD "salt" varchar(255)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110522192715')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (92.0ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "password" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255)) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (42.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (51.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (42.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522192715')[0m
+  [1m[35mSQL (42.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110522191825')
+  [1m[36mSQL (126.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522191550')[0m
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110522191550)
+Migrating to AddPasswordToUsers (20110522191825)
+Migrating to AddSaltToUsers (20110522192715)
+Migrating to CreateExercises (20110522193707)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "exercises" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "reps" integer, "weight" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110522193707')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("exercises")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (86.5ms)[0m  CREATE TABLE "exercises" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "reps" integer, "weight" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (41.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "password" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255)) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (51.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (42.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (50.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522193707')[0m
+  [1m[35mSQL (93.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110522191825')
+  [1m[36mSQL (42.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522191550')[0m
+  [1m[35mSQL (42.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110522192715')
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110522191550)
+Migrating to AddPasswordToUsers (20110522191825)
+Migrating to AddSaltToUsers (20110522192715)
+Migrating to CreateExercises (20110522193707)
+Migrating to CreateWorkouts (20110522193810)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "workouts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110522193810')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("exercises")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("workouts")
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (76.9ms)[0m  CREATE TABLE "exercises" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "reps" integer, "weight" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (41.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "password" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255)) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (50.9ms)[0m  CREATE TABLE "workouts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (42.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (140.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (45.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522193810')[0m
+  [1m[35mSQL (42.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110522193707')
+  [1m[36mSQL (42.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522191825')[0m
+  [1m[35mSQL (42.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110522191550')
+  [1m[36mSQL (51.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522192715')[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110522191550)
+Migrating to AddPasswordToUsers (20110522191825)
+Migrating to AddSaltToUsers (20110522192715)
+Migrating to CreateExercises (20110522193707)
+Migrating to CreateWorkouts (20110522193810)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("exercises")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("workouts")
+  [1m[36mExercise Load (0.4ms)[0m  [1mSELECT "exercises".* FROM "exercises"[0m
+  [1m[35mWorkout Load (0.1ms)[0m  SELECT "workouts".* FROM "workouts"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "workouts" ("description", "updated_at", "created_at", "name") VALUES ('21-15-9, reps for time', '2011-05-22 20:45:10.877343', '2011-05-22 20:45:10.877343', 'Fran')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "exercises" ("weight", "created_at", "reps", "name", "updated_at") VALUES (NULL, '2011-05-22 20:45:20.232549', NULL, 'Pull-ups', '2011-05-22 20:45:20.232549')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "exercises" ("weight", "created_at", "reps", "name", "updated_at") VALUES (95, '2011-05-22 20:47:04.738994', NULL, 'Thrusters', '2011-05-22 20:47:04.738994')
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110522191550)
+Migrating to AddPasswordToUsers (20110522191825)
+Migrating to AddSaltToUsers (20110522192715)
+Migrating to CreateExercises (20110522193707)
+Migrating to CreateWorkouts (20110522193810)
+Migrating to CreateWarmups (20110522205639)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "warmups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110522205639')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("exercises")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("warmups")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("workouts")[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110522191550)
+Migrating to AddPasswordToUsers (20110522191825)
+Migrating to AddSaltToUsers (20110522192715)
+Migrating to CreateExercises (20110522193707)
+Migrating to CreateWorkouts (20110522193810)
+Migrating to CreateWarmups (20110522205639)
+Migrating to CreateEntries (20110522210326)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" date, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110522210326')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("entries")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("exercises")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("warmups")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("workouts")
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (90.0ms)[0m  CREATE TABLE "entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" date, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (41.7ms)[0m  CREATE TABLE "exercises" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "reps" integer, "weight" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (50.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "password" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255)) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (42.0ms)[0m  CREATE TABLE "warmups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (75.8ms)[0m  CREATE TABLE "workouts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (84.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (42.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (42.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522210326')[0m
+  [1m[35mSQL (42.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110522193707')
+  [1m[36mSQL (42.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522191825')[0m
+  [1m[35mSQL (51.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110522191550')
+  [1m[36mSQL (76.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522193810')[0m
+  [1m[35mSQL (42.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110522192715')
+  [1m[36mSQL (42.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522205639')[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110522191550)
+Migrating to AddPasswordToUsers (20110522191825)
+Migrating to AddSaltToUsers (20110522192715)
+Migrating to CreateExercises (20110522193707)
+Migrating to CreateWorkouts (20110522193810)
+Migrating to CreateWarmups (20110522205639)
+Migrating to CreateEntries (20110522210326)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("entries")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("exercises")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("warmups")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("workouts")
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (92.1ms)[0m  CREATE TABLE "entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" date, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (41.9ms)[0m  CREATE TABLE "exercises" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "reps" integer, "weight" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (50.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "password" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255)) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (42.0ms)[0m  CREATE TABLE "warmups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (102.8ms)[0m  CREATE TABLE "workouts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (49.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (42.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (42.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522210326')[0m
+  [1m[35mSQL (42.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110522193707')
+  [1m[36mSQL (84.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522191825')[0m
+  [1m[35mSQL (84.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110522191550')
+  [1m[36mSQL (42.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522193810')[0m
+  [1m[35mSQL (43.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110522192715')
+  [1m[36mSQL (42.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522205639')[0m
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "users" WHERE ("users"."name" = 'William Holloway') LIMIT 1
   [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "users" WHERE (LOWER("users"."email") = LOWER('wjdhollow@gmail.com')) LIMIT 1[0m
   [1m[35mSQL (0.2ms)[0m   SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "salt", "updated_at", "created_at", "password", "name", "encrypted_password") VALUES ('wjdhollow@gmail.com', 'b469b7a59aade0c235d0b492d02b756a0564ed61fdbc98dcda6c4acf92be5f15', '2011-05-22 17:41:17.694993', '2011-05-22 17:41:17.694993', NULL, 'William Holloway', '7fab2e49995fa7d03a2bbe6e4f242861af3167e5360f73f11ce94eed0118da1c')[0m
-Redirected to http://localhost:3000/users/1
-Completed 302 Found in 195ms
-
-
-Started GET "/users/1" for 127.0.0.1 at Sun May 22 10:41:17 -0700 2011
-  Processing by UsersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
-Rendered users/show.html.erb within layouts/application (12.1ms)
-Completed 200 OK in 25ms (Views: 15.7ms | ActiveRecord: 0.2ms)
-  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "users" ("updated_at", "password", "created_at", "name", "salt", "encrypted_password", "email") VALUES ('2011-05-22 21:14:08.836384', NULL, '2011-05-22 21:14:08.836384', 'William Holloway', '1ce0f1ddc6c152dc7b46d9fb7a114b10b887e53dd645c634dd16b45ac6945969', '05575dc357f51fe4de2e7136c43d373a4f5fa4a3b0bc40f3e769c8a394112636', 'wjdhollow@gmail.com')[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
@@ -146,13 +517,14 @@ Completed 200 OK in 25ms (Views: 15.7ms | ActiveRecord: 0.2ms)
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
   [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
-Migrating to CreateUsers (20110522173543)
-Migrating to AddPasswordToUsers (20110522173704)
-Migrating to AddSaltToUsers (20110522173919)
-Migrating to CreateEvents (20110522174232)
+Migrating to CreateUsers (20110522191550)
+Migrating to AddPasswordToUsers (20110522191825)
+Migrating to AddSaltToUsers (20110522192715)
+Migrating to CreateExercises (20110522193707)
+Migrating to CreateWorkouts (20110522193810)
+Migrating to CreateWarmups (20110522205639)
+Migrating to CreateEntries (20110522210326)
   [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
-  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "date" date, "body" text, "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
-  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110522174232')
   [1m[36mSQL (0.2ms)[0m  [1m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
@@ -162,195 +534,43 @@ Migrating to CreateEvents (20110522174232)
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
-  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("events")
-  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
-
-
-Started GET "/users/1" for 127.0.0.1 at Sun May 22 10:57:02 -0700 2011
-  Processing by UsersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("entries")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("exercises")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("warmups")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("workouts")
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "users" WHERE ("users"."name" = 'Will') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "users" WHERE (LOWER("users"."email") = LOWER('email@email.com')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
-  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
-  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1)[0m
-Rendered users/show.html.erb within layouts/application (98.7ms)
-Completed   in 137ms
-
-ActionView::Template::Error (undefined method `date' for #<ActionView::Helpers::FormBuilder:0x7fc3ac77bdf8>):
-    41:   </div>
-    42:   <div class="field">
-    43:     <%= f.label :date %>
-    44:     <%= f.date  :date %>
-    45:   </div>
-    46:   <div class="field">
-    47:     <%= f.label :body %><br />
-  app/views/users/show.html.erb:44:in `_app_views_users_show_html_erb__1799744672_70239193026240_0'
-  app/views/users/show.html.erb:37:in `_app_views_users_show_html_erb__1799744672_70239193026240_0'
-  app/controllers/users_controller.rb:18:in `show'
-
-Rendered /var/lib/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
-Rendered /var/lib/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.7ms)
-Rendered /var/lib/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.9ms)
-
-
-Started GET "/users/1" for 127.0.0.1 at Sun May 22 10:59:22 -0700 2011
-  Processing by UsersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "salt", "password", "created_at", "encrypted_password", "updated_at") VALUES ('Will', 'email@email.com', 'b9dff5e3cf95bf30213c01d79a500d10f5e4439727a6787b2f9106b8b545fe05', NULL, '2011-05-22 21:19:21.564984', '8121d328718eb31824a30aee74311023cd8b1d721624ebf7e74b2597b0f1c86b', '2011-05-22 21:19:21.564984')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "entries" ("updated_at", "date", "created_at") VALUES ('2011-05-22 21:19:52.869935', NULL, '2011-05-22 21:19:52.869935')[0m
+  [1m[35mEntry Load (0.1ms)[0m  SELECT "entries".* FROM "entries" WHERE ("entries".user_id = 1)
+SQLite3::SQLException: no such column: entries.user_id: SELECT "entries".* FROM "entries" WHERE ("entries".user_id = 1)
+  [1m[36mEntry Load (0.1ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE ("entries".user_id = 1)[0m
+SQLite3::SQLException: no such column: entries.user_id: SELECT "entries".* FROM "entries" WHERE ("entries".user_id = 1)
+  [1m[35mEntry Load (0.1ms)[0m  SELECT "entries".* FROM "entries" WHERE ("entries".user_id = 1)
+SQLite3::SQLException: no such column: entries.user_id: SELECT "entries".* FROM "entries" WHERE ("entries".user_id = 1)
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "entries" ("updated_at", "date", "created_at") VALUES ('2011-05-22 21:23:15.828159', NULL, '2011-05-22 21:23:15.828159')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "entries" ("updated_at", "date", "created_at") VALUES ('2011-05-22 21:23:32.728442', '2011-06-11', '2011-05-22 21:23:32.728442')
+  [1m[36mEntry Load (0.1ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE ("entries".user_id = 1)[0m
+SQLite3::SQLException: no such column: entries.user_id: SELECT "entries".* FROM "entries" WHERE ("entries".user_id = 1)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
-  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
-  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1)[0m
-Rendered users/show.html.erb within layouts/application (96.3ms)
-Completed 200 OK in 134ms (Views: 99.6ms | ActiveRecord: 0.8ms)
-
-
-Started POST "/users/1/events" for 127.0.0.1 at Sun May 22 10:59:53 -0700 2011
-  Processing by EventsController#create as HTML
-  Parameters: {"commit"=>"Create Event", "authenticity_token"=>"3kL4I9iFTuDILyfDd85wQPJ8f8/feG6LER9D7zc0lT0=", "utf8"=>"✓", "event"=>{"date(1i)"=>"2010", "title"=>"My Birthday", "date(2i)"=>"6", "body"=>"Today was my birthday, I had a good day", "date(3i)"=>"11"}, "user_id"=>"1"}
-  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
-Redirected to http://localhost:3000/users/1
-Completed 302 Found in 34ms
-
-
-Started GET "/users/1" for 127.0.0.1 at Sun May 22 10:59:53 -0700 2011
-  Processing by UsersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
-  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1)
-Rendered users/show.html.erb within layouts/application (82.7ms)
-Completed 200 OK in 97ms (Views: 86.0ms | ActiveRecord: 0.3ms)
-
-
-Started GET "/events" for 127.0.0.1 at Sun May 22 11:00:23 -0700 2011
-
-ActionController::RoutingError (No route matches "/events"):
-  
-
-Rendered /var/lib/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
-
-
-Started GET "/users" for 127.0.0.1 at Sun May 22 11:00:31 -0700 2011
-  Processing by UsersController#index as HTML
-  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
-Rendered users/index.html.erb within layouts/application (11.0ms)
-Completed 200 OK in 24ms (Views: 14.2ms | ActiveRecord: 0.3ms)
-
-
-Started GET "/users/1" for 127.0.0.1 at Sun May 22 11:00:35 -0700 2011
-  Processing by UsersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
-  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1)[0m
-Rendered users/show.html.erb within layouts/application (73.3ms)
-Completed 200 OK in 133ms (Views: 76.4ms | ActiveRecord: 0.4ms)
-  [1m[36mEvent Load (0.4ms)[0m  [1mSELECT "events".* FROM "events"[0m
-  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
-
-
-Started GET "/users/" for 127.0.0.1 at Sun May 22 11:02:25 -0700 2011
-  Processing by UsersController#index as HTML
-  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
-Rendered users/index.html.erb within layouts/application (62.6ms)
-Completed 200 OK in 100ms (Views: 66.0ms | ActiveRecord: 0.5ms)
-
-
-Started GET "/users/1" for 127.0.0.1 at Sun May 22 11:02:27 -0700 2011
-  Processing by UsersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[35mSQL (0.2ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
-  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1)
-Rendered users/show.html.erb within layouts/application (89.9ms)
-Completed 200 OK in 104ms (Views: 92.9ms | ActiveRecord: 0.6ms)
-
-
-Started POST "/users/1/events" for 127.0.0.1 at Sun May 22 11:02:48 -0700 2011
-  Processing by EventsController#create as HTML
-  Parameters: {"commit"=>"Create Event", "authenticity_token"=>"3kL4I9iFTuDILyfDd85wQPJ8f8/feG6LER9D7zc0lT0=", "utf8"=>"✓", "event"=>{"date(1i)"=>"2010", "title"=>"My Birthday", "date(2i)"=>"6", "body"=>"Today was my birthday", "date(3i)"=>"11"}, "user_id"=>"1"}
-  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
-  [1m[35mAREL (0.3ms)[0m  INSERT INTO "events" ("body", "user_id", "updated_at", "date", "title", "created_at") VALUES ('Today was my birthday', 1, '2011-05-22 18:02:48.825919', '2010-06-11', 'My Birthday', '2011-05-22 18:02:48.825919')
-Redirected to http://localhost:3000/users/1
-Completed 302 Found in 195ms
-
-
-Started GET "/users/1" for 127.0.0.1 at Sun May 22 11:02:48 -0700 2011
-  Processing by UsersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
-  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1)
-Rendered users/show.html.erb within layouts/application (90.8ms)
-Completed 200 OK in 107ms (Views: 94.0ms | ActiveRecord: 0.4ms)
-
-
-Started GET "/users/" for 127.0.0.1 at Sun May 22 11:12:42 -0700 2011
-  Processing by UsersController#index as HTML
-  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
-Rendered users/index.html.erb within layouts/application (62.3ms)
-Completed 200 OK in 99ms (Views: 65.7ms | ActiveRecord: 0.5ms)
-
-
-Started GET "/users/1" for 127.0.0.1 at Sun May 22 11:12:45 -0700 2011
-  Processing by UsersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[35mSQL (0.2ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
-  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1)
-Rendered users/show.html.erb within layouts/application (71.4ms)
-Completed   in 85ms
-
-ActionView::Template::Error (Missing partial events/event with {:locale=>[:en, :en], :handlers=>[:erb, :rjs, :builder, :rhtml, :rxml], :formats=>[:html]} in view paths "/home/wjholl/rails_projects/xlogger2/app/views"):
-    17: 
-    18: <h2>Events</h2>
-    19: <%= render :partial => "events/event",
-    20:            :collection => @user.events %>
-    21:  
-    22: 
-    23: <h2>Add an Event:</h2>
-  app/views/users/show.html.erb:20:in `_app_views_users_show_html_erb__1799744672_69880917092060_0'
-  app/controllers/users_controller.rb:18:in `show'
-
-Rendered /var/lib/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
-Rendered /var/lib/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.6ms)
-Rendered /var/lib/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.1ms)
-
-
-Started GET "/users/1" for 127.0.0.1 at Sun May 22 11:14:51 -0700 2011
-  Processing by UsersController#show as HTML
-  Parameters: {"id"=>"1"}
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "workouts" ("name", "description", "updated_at", "created_at") VALUES ('Fran', NULL, '2011-05-22 21:27:17.777290', '2011-05-22 21:27:17.777290')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "exercises" ("created_at", "weight", "name", "updated_at", "reps") VALUES ('2011-05-22 21:27:41.185124', NULL, 'Pull-ups', '2011-05-22 21:27:41.185124', NULL)[0m
+  [1m[35mExercise Load (0.1ms)[0m  SELECT "exercises".* FROM "exercises" WHERE ("exercises".workout_id = 1)
+SQLite3::SQLException: no such column: exercises.workout_id: SELECT "exercises".* FROM "exercises" WHERE ("exercises".workout_id = 1)
+  [1m[36mExercise Load (0.1ms)[0m  [1mSELECT "exercises".* FROM "exercises" WHERE ("exercises".workout_id = 1)[0m
+SQLite3::SQLException: no such column: exercises.workout_id: SELECT "exercises".* FROM "exercises" WHERE ("exercises".workout_id = 1)
+  [1m[35mExercise Load (0.1ms)[0m  SELECT "exercises".* FROM "exercises" WHERE ("exercises".workout_id = 1)
+SQLite3::SQLException: no such column: exercises.workout_id: SELECT "exercises".* FROM "exercises" WHERE ("exercises".workout_id = 1)
+  [1m[36mExercise Load (0.2ms)[0m  [1mSELECT "exercises".* FROM "exercises"[0m
   [1m[36mSQL (0.5ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
-  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1)[0m
-Rendered events/_event.html.erb (8.1ms)
-Rendered users/show.html.erb within layouts/application (100.4ms)
-Completed 200 OK in 139ms (Views: 103.6ms | ActiveRecord: 0.9ms)
-
-
-Started GET "/users/1" for 127.0.0.1 at Sun May 22 11:20:45 -0700 2011
-  Processing by UsersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
-  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1)[0m
-  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
-Rendered events/_event.html.erb (11.9ms)
-Rendered events/_form.html.erb (10.7ms)
-Rendered users/show.html.erb within layouts/application (101.3ms)
-Completed 200 OK in 140ms (Views: 104.5ms | ActiveRecord: 0.9ms)
-  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
@@ -358,15 +578,14 @@ Completed 200 OK in 140ms (Views: 104.5ms | ActiveRecord: 0.9ms)
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
   [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
-Migrating to CreateUsers (20110522173543)
-Migrating to AddPasswordToUsers (20110522173704)
-Migrating to AddSaltToUsers (20110522173919)
-Migrating to CreateEvents (20110522174232)
-Migrating to CreateTags (20110522182200)
-  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
-  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "event_id" integer, "created_at" datetime, "updated_at" datetime) [0m
-  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110522182200')
-  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+Migrating to CreateUsers (20110522191550)
+Migrating to AddPasswordToUsers (20110522191825)
+Migrating to AddSaltToUsers (20110522192715)
+Migrating to CreateExercises (20110522193707)
+Migrating to CreateWorkouts (20110522193810)
+Migrating to CreateEntries (20110522210326)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
@@ -375,83 +594,12 @@ Migrating to CreateTags (20110522182200)
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
-  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("events")
-  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("tags")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("entries")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("exercises")[0m
   [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
-
-
-Started GET "/users/1" for 127.0.0.1 at Sun May 22 11:40:29 -0700 2011
-  Processing by UsersController#show as HTML
-  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("warmups")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("workouts")
   [1m[36mSQL (0.5ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
-Rendered users/show.html.erb within layouts/application (61.9ms)
-Completed   in 100ms
-
-ActionView::Template::Error (undefined method `tags' for nil:NilClass):
-    17: 
-    18: <p>
-    19:   <b>Tags:</b>
-    20:   <%= @post.tags.map { |t| t.name }.join(", ") %>
-    21: </p>
-    22: 
-    23: <h2>Events</h2>
-  app/views/users/show.html.erb:20:in `_app_views_users_show_html_erb__1799744672_70275399535540_0'
-  app/controllers/users_controller.rb:18:in `show'
-
-Rendered /var/lib/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.6ms)
-Rendered /var/lib/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.9ms)
-Rendered /var/lib/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.8ms)
-
-
-Started GET "/users/1" for 127.0.0.1 at Sun May 22 11:42:14 -0700 2011
-  Processing by UsersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
-  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1)[0m
-Rendered events/_event.html.erb (10.8ms)
-Rendered users/show.html.erb within layouts/application (88.8ms)
-Completed   in 127ms
-
-ActionView::Template::Error (undefined method `tags' for nil:NilClass):
-    15: 
-    16: <p>
-    17:   <b>Tags:</b>
-    18:   <%= @event.tags.map { |t| t.name }.join(", ") %>
-    19: </p>
-    20: 
-    21: 
-  app/views/events/_event.html.erb:18:in `_app_views_events__event_html_erb__756945552_70263750771860_3598092'
-  app/views/users/show.html.erb:20:in `_app_views_users_show_html_erb__1799744672_70263749279160_0'
-  app/controllers/users_controller.rb:18:in `show'
-
-Rendered /var/lib/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
-Rendered /var/lib/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.6ms)
-Rendered /var/lib/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.1ms)
-
-
-Started GET "/users/1" for 127.0.0.1 at Sun May 22 11:53:14 -0700 2011
-  Processing by UsersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
-  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1)[0m
-  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
-Rendered events/_event.html.erb (11.9ms)
-Rendered events/_form.html.erb (10.6ms)
-Rendered users/show.html.erb within layouts/application (102.4ms)
-Completed 200 OK in 141ms (Views: 105.7ms | ActiveRecord: 0.9ms)
-  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
@@ -459,15 +607,113 @@ Completed 200 OK in 141ms (Views: 105.7ms | ActiveRecord: 0.9ms)
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
   [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
-Migrating to CreateUsers (20110522173543)
-Migrating to AddPasswordToUsers (20110522173704)
-Migrating to AddSaltToUsers (20110522173919)
-Migrating to CreateEvents (20110522174232)
-Migrating to CreateTags (20110522182200)
-Migrating to CreateWorkouts (20110522190704)
+Migrating to CreateUsers (20110522191550)
+Migrating to AddPasswordToUsers (20110522191825)
+Migrating to AddSaltToUsers (20110522192715)
+Migrating to CreateExercises (20110522193707)
+Migrating to CreateWorkouts (20110522193810)
+Migrating to CreateEntries (20110522210326)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("entries")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("exercises")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("warmups")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("workouts")
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "users" WHERE ("users"."name" = 'William Holloway') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "users" WHERE (LOWER("users"."email") = LOWER('wjdhollow@gmail.com')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "users" ("updated_at", "created_at", "password", "encrypted_password", "salt", "name", "email") VALUES ('2011-05-22 21:35:23.296244', '2011-05-22 21:35:23.296244', NULL, '5143ae7c00df5c6cef15c54bd3559467eb0d9b10edefba0179aeb846095aa6d7', 'a60ca30ba5583bbb1026f17adf0474292db76a37b96185516d40784858ad6877', 'William Holloway', 'wjdhollow@gmail.com')
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (85.3ms)[0m  CREATE TABLE "entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" date, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (41.7ms)[0m  CREATE TABLE "exercises" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "reps" integer, "weight" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (50.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "password" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255)) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (42.0ms)[0m  CREATE TABLE "warmups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (75.8ms)[0m  CREATE TABLE "workouts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (92.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (42.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (42.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522210326')[0m
+  [1m[35mSQL (42.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110522193707')
+  [1m[36mSQL (42.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522191825')[0m
+  [1m[35mSQL (51.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110522191550')
+  [1m[36mSQL (76.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522193810')[0m
+  [1m[35mSQL (42.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110522192715')
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "workouts" ("updated_at", "description", "created_at", "name") VALUES ('2011-05-22 21:36:21.437310', NULL, '2011-05-22 21:36:21.437310', 'Fran')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "exercises" ("weight", "created_at", "name", "reps", "updated_at") VALUES (NULL, '2011-05-22 21:37:00.075183', 'Pull-ups', NULL, '2011-05-22 21:37:00.075183')[0m
+  [1m[35mExercise Load (0.1ms)[0m  SELECT "exercises".* FROM "exercises" WHERE ("exercises".workout_id = 1)
+SQLite3::SQLException: no such column: exercises.workout_id: SELECT "exercises".* FROM "exercises" WHERE ("exercises".workout_id = 1)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110522191550)
+Migrating to AddPasswordToUsers (20110522191825)
+Migrating to AddSaltToUsers (20110522192715)
+Migrating to CreateExercises (20110522193707)
+Migrating to CreateWorkouts (20110522193810)
+Migrating to CreateEntries (20110522210326)
+Migrating to AddWorkoutIdToExercises (20110522213900)
   [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
-  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "workouts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "body" text, "event_id" integer, "created_at" datetime, "updated_at" datetime) [0m
-  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110522190704')
+  [1m[36mSQL (0.4ms)[0m  [1mALTER TABLE "exercises" ADD "workout_id" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110522213900')
   [1m[36mSQL (0.2ms)[0m  [1m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
@@ -477,7 +723,142 @@ Migrating to CreateWorkouts (20110522190704)
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
-  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("events")
-  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("tags")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("entries")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("exercises")[0m
   [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
-  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("workouts")[0m
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("warmups")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("workouts")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "workouts" ("description", "created_at", "name", "updated_at") VALUES (NULL, '2011-05-22 21:40:05.527319', 'Fran', '2011-05-22 21:40:05.527319')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "exercises" ("weight", "workout_id", "reps", "updated_at", "created_at", "name") VALUES (NULL, 1, NULL, '2011-05-22 21:40:26.775669', '2011-05-22 21:40:26.775669', 'Pull-ups')[0m
+  [1m[35mExercise Load (0.2ms)[0m  SELECT "exercises".* FROM "exercises" WHERE ("exercises".workout_id = 1)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110522191550)
+Migrating to AddPasswordToUsers (20110522191825)
+Migrating to AddSaltToUsers (20110522192715)
+Migrating to CreateExercises (20110522193707)
+Migrating to CreateWorkouts (20110522193810)
+Migrating to CreateEntries (20110522210326)
+Migrating to AddWorkoutIdToExercises (20110522213900)
+Migrating to AddWarmupIdToExercises (20110522214946)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1mALTER TABLE "exercises" ADD "warmup_id" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110522214946')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("entries")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("exercises")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("warmups")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("workouts")
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (77.6ms)[0m  CREATE TABLE "entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" date, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (41.7ms)[0m  CREATE TABLE "exercises" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "reps" integer, "weight" integer, "created_at" datetime, "updated_at" datetime, "workout_id" integer, "warmup_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (50.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "password" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255)) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (50.3ms)[0m  CREATE TABLE "warmups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (118.7ms)[0m  CREATE TABLE "workouts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (50.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (42.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (42.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522214946')[0m
+  [1m[35mSQL (42.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110522193707')
+  [1m[36mSQL (84.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522191825')[0m
+  [1m[35mSQL (84.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110522191550')
+  [1m[36mSQL (42.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522193810')[0m
+  [1m[35mSQL (42.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110522210326')
+  [1m[36mSQL (42.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110522213900')[0m
+  [1m[35mSQL (42.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110522192715')
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110522191550)
+Migrating to AddPasswordToUsers (20110522191825)
+Migrating to AddSaltToUsers (20110522192715)
+Migrating to CreateExercises (20110522193707)
+Migrating to CreateWorkouts (20110522193810)
+Migrating to CreateEntries (20110522210326)
+Migrating to AddWorkoutIdToExercises (20110522213900)
+Migrating to AddWarmupIdToExercises (20110522214946)
+Migrating to AddEntryIdToWorkouts (20110522215643)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1mALTER TABLE "workouts" ADD "entry_id" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110522215643')
+Migrating to AddEntryIdToWarmups (20110522215725)
+  [1m[36mSQL (0.3ms)[0m  [1mALTER TABLE "warmups" ADD "entry_id" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110522215725')
+Migrating to AddUserIdToEntries (20110522215758)
+  [1m[36mSQL (0.3ms)[0m  [1mALTER TABLE "entries" ADD "user_id" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110522215758')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("entries")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("exercises")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("warmups")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("workouts")

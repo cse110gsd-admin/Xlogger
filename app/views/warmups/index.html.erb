@@ -1,0 +1,23 @@
+<h1>Listing warmups</h1>
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @warmups.each do |warmup| %>
+  <tr>
+    <td><%= warmup.description %></td>
+    <td><%= link_to 'Show', warmup %></td>
+    <td><%= link_to 'Edit', edit_warmup_path(warmup) %></td>
+    <td><%= link_to 'Destroy', warmup, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Warmup', new_warmup_path %>

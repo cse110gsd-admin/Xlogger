@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
                         :uniqueness => {:case_sensitive => false},
                         :format => { :with => email_regex } #checks that email is in email format
   
-  has_many :events
+  has_many :entrys, :dependent => :destroy
   
   
   before_save :encrypt_password
@@ -54,5 +54,4 @@ class User < ActiveRecord::Base
     def secure_hash(string)
       Digest::SHA2.hexdigest(string)
     end
-
 end
