@@ -1,5 +1,26 @@
 <h1>New workout</h1>
 
-<%= render 'form' %>
-<%= @workout.template_id %>
+<%= form_for(@workout) do |f| %>
+  <% if @workout.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@workout.errors.count, "error") %> prohibited this workout from being saved:</h2>
+
+      <ul>
+      <% @workout.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Load from template" %><br />
+    <%= f.collection_select :template_id, @templates, :id, :name %>
+    <!--%= f.text_field :template_id %-->
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 <%= link_to 'Back', workouts_path %>
