@@ -43,6 +43,39 @@ Warmup  Similar to workouts, except these can only be associated with an entry
         entry_id       all warmups in the calendar will have an entry_id
         
 
+Basic usage:
+
+To create a new user
+  @user = User.new(params)
+  @user.save
+
+To create a new entry
+  @entry = @user.entries.create(params)
+  @entry.save
+
+To create log a workout for a particular day
+  @workout = @entry.workouts.create(params)
+  @workout.save
+
+To add exercises to a workout
+  @exercise = @workout.exercises.create(params)
+  @exercise.save
+
+To create a template workout
+  @workout = Workout.new(:user_id => @user.id, params)
+  @workout.save
+
+To get a list of template workouts
+  @workout_array = Workout.where(:user_id => @user.id)
+
+To get a list of crossfit workouts
+  @crossfit = User.where(:name => "Crossfit")
+  @crossfit = @crossfit.first                  // this just makes sure the object is
+                                               // singular, temporary fix
+  @workout_array = Workout.where(:user_id => @crossfit.id)
+
+ 
+
 
 == Welcome to Rails
 
