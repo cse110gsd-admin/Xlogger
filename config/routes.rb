@@ -1,4 +1,6 @@
 Xlogger::Application.routes.draw do
+  resources :templates
+
   get "pages/home"
 
   get "pages/contact"
