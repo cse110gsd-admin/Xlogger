@@ -1,3 +1,27 @@
+== Welcome to Xlogger
+
+Xlogger is a web-application that logs stuff.
+
+Xlogger is based off of nested models, with the user
+as the base.
+
+Here is a breakdown of the class design
+
+Name: 	User
+Role:	Athlete
+Fields:		name
+		email
+		password
+
+Name:	Entry
+Role:	Calendar day
+Fields:		date
+		workout_id
+		warmup_id
+
+
+
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create

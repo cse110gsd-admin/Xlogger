@@ -643,3 +643,33 @@ Started GET "/workouts/new" for 127.0.0.1 at Mon May 23 00:49:14 -0700 2011
 Rendered workouts/_form.html.erb (70.4ms)
 Rendered workouts/new.html.erb within layouts/application (73.7ms)
 Completed 200 OK in 192ms (Views: 76.8ms | ActiveRecord: 0.7ms)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mTemplate Load (0.2ms)[0m  [1mSELECT "templates".* FROM "templates"[0m
+  [1m[35mTemplate Load (0.2ms)[0m  SELECT "templates".* FROM "templates" WHERE "templates"."name" = 'Angie' LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "exercises" ("weight", "reps", "updated_at", "exerciseable_type", "name", "created_at", "exerciseable_id") VALUES (NULL, 100, '2011-05-23 08:16:05.566167', 'Template', 'Pull-ups', '2011-05-23 08:16:05.566167', 1)[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "exercises" ("weight", "reps", "updated_at", "exerciseable_type", "name", "created_at", "exerciseable_id") VALUES (NULL, 100, '2011-05-23 08:16:25.376661', 'Template', 'Push-ups', '2011-05-23 08:16:25.376661', 1)
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "exercises" ("weight", "reps", "updated_at", "exerciseable_type", "name", "created_at", "exerciseable_id") VALUES (NULL, 100, '2011-05-23 08:16:36.546582', 'Template', 'Sit-ups', '2011-05-23 08:16:36.546582', 1)[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "exercises" ("weight", "reps", "updated_at", "exerciseable_type", "name", "created_at", "exerciseable_id") VALUES (NULL, 100, '2011-05-23 08:16:48.156604', 'Template', 'Squats', '2011-05-23 08:16:48.156604', 1)
+  [1m[36mExercise Load (0.3ms)[0m  [1mSELECT "exercises".* FROM "exercises" WHERE ("exercises".exerciseable_id = 1 AND "exercises".exerciseable_type = 'Template')[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE "templates" SET "updated_at" = '2011-05-23 08:18:12.945034', "description" = 'For time
+Complete all reps of each exercise before moving to the next' WHERE "templates"."id" = 1
+  [1m[36mTemplate Load (0.2ms)[0m  [1mSELECT "templates".* FROM "templates"[0m
+  [1m[35mTemplate Load (0.2ms)[0m  SELECT "templates".* FROM "templates" WHERE "templates"."name" = 'Barbara' LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "exercises" ("weight", "reps", "updated_at", "exerciseable_type", "name", "created_at", "exerciseable_id") VALUES (NULL, 20, '2011-05-23 08:21:01.566709', 'Template', 'Pull-ups', '2011-05-23 08:21:01.566709', 2)[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "exercises" ("weight", "reps", "updated_at", "exerciseable_type", "name", "created_at", "exerciseable_id") VALUES (NULL, 30, '2011-05-23 08:21:23.056591', 'Template', 'Push-ups', '2011-05-23 08:21:23.056591', 2)
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "exercises" ("weight", "reps", "updated_at", "exerciseable_type", "name", "created_at", "exerciseable_id") VALUES (NULL, 30, '2011-05-23 08:21:36.846564', 'Template', 'Sit-ups', '2011-05-23 08:21:36.846564', 2)[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE "exercises" SET "reps" = 40, "updated_at" = '2011-05-23 08:22:08.914924' WHERE "exercises"."id" = 7
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "exercises" ("weight", "reps", "updated_at", "exerciseable_type", "name", "created_at", "exerciseable_id") VALUES (NULL, 50, '2011-05-23 08:22:27.436660', 'Template', 'Squats', '2011-05-23 08:22:27.436660', 2)[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE "templates" SET "updated_at" = '2011-05-23 08:23:24.755011', "description" = '5 rounds, time each round. Rest precisely three minutes between each round' WHERE "templates"."id" = 2
+  [1m[36mExercise Load (0.3ms)[0m  [1mSELECT "exercises".* FROM "exercises" WHERE ("exercises".exerciseable_id = 2 AND "exercises".exerciseable_type = 'Template')[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mTemplate Load (0.2ms)[0m  [1mSELECT "templates".* FROM "templates" WHERE ("templates".user_id = 1)[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "templates" ("updated_at", "created_at", "name", "user_id", "description") VALUES ('2011-05-23 08:34:12.046602', '2011-05-23 08:34:12.046602', 'Custom', 1, NULL)
