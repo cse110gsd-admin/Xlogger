@@ -25,7 +25,8 @@
   </div>
   <div class="field">
     <%= f.label :template_id %><br />
-    <%= f.text_field :template_id %>
+    <%= f.collection_select :template_id, @templates, :id, :name %>
+    <!--%= f.text_field :template_id %-->
   </div>
   <div class="actions">
     <%= f.submit %>

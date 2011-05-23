@@ -25,7 +25,9 @@ class WorkoutsController < ApplicationController
   # GET /workouts/new.xml
   def new
     @workout = Workout.new
-
+    # fetches all the crossfit templates ordered by name
+    @templates = Template.where(:user_id => 
+      User.find_by_name("crossfit").id).order(:name)
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @workout }
