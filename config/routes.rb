@@ -2,7 +2,7 @@ Xlogger::Application.routes.draw do
   get "pages/home"
   get "pages/contact"
   
- # get "calendar/index"
+  get "calendar/index"
 
   resources :sessions, :only => [:new, :create, :destroy]
   resources :events
@@ -22,7 +22,7 @@ Xlogger::Application.routes.draw do
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'
 
- # match 'calendar', :to => "calendar#index"
+  match 'calendar', :to => "calendar#index"
 
 
   root :to => 'pages#home' 
