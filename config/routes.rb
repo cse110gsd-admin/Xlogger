@@ -1,32 +1,19 @@
-Calendar::Application.routes.draw do
-  resources :events
-  resources :workouts
-  resources :users
-  resources :sessions, :only => [:new, :create, :destroy]
-
-  
-  get "calendar/index"
-
-
+Xlogger::Application.routes.draw do
   get "pages/home"
+
   get "pages/contact"
-  get "pages/about"
-  get "pages/help"
 
-  match '/signup', :to => 'users#new'
-  match '/signin', :to => 'sessions#new'
-  match '/signout', :to => 'sessions#destroy'
+  resources :workouts
 
-  match '/contact', :to => 'pages#contact'
-  match '/about',   :to => 'pages#about'
-  match '/help',    :to => 'pages#help'
+  resources :warmups
 
-  match 'calendar', :to => "calendar#index"
+  resources :templates
 
+  resources :exercises
 
-  root :to => 'pages#home' 
+  resources :entries
 
-
+  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -79,7 +66,6 @@ Calendar::Application.routes.draw do
   # just remember to delete public/index.html.
   # root :to => "welcome#index"
 
-  
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
