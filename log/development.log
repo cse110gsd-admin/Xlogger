@@ -673,3 +673,424 @@ Complete all reps of each exercise before moving to the next' WHERE "templates".
   [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
   [1m[36mTemplate Load (0.2ms)[0m  [1mSELECT "templates".* FROM "templates" WHERE ("templates".user_id = 1)[0m
   [1m[35mAREL (0.3ms)[0m  INSERT INTO "templates" ("updated_at", "created_at", "name", "user_id", "description") VALUES ('2011-05-23 08:34:12.046602', '2011-05-23 08:34:12.046602', 'Custom', 1, NULL)
+
+
+Started GET "/workouts" for 127.0.0.1 at Mon May 23 01:39:56 -0700 2011
+  Processing by WorkoutsController#index as HTML
+  [1m[36mWorkout Load (0.5ms)[0m  [1mSELECT "workouts".* FROM "workouts"[0m
+Rendered workouts/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 112ms (Views: 66.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/workouts/new" for 127.0.0.1 at Mon May 23 01:39:58 -0700 2011
+  Processing by WorkoutsController#new as HTML
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."name" = 'crossfit' LIMIT 1[0m
+  [1m[35mTemplate Load (0.3ms)[0m  SELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 ORDER BY name
+Rendered workouts/_form.html.erb (109.5ms)
+Rendered workouts/new.html.erb within layouts/application (112.9ms)
+Completed 200 OK in 162ms (Views: 127.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/workouts" for 127.0.0.1 at Mon May 23 01:42:55 -0700 2011
+  Processing by WorkoutsController#index as HTML
+  [1m[36mWorkout Load (0.5ms)[0m  [1mSELECT "workouts".* FROM "workouts"[0m
+Rendered workouts/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 89ms (Views: 56.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/workouts/new" for 127.0.0.1 at Mon May 23 01:42:57 -0700 2011
+  Processing by WorkoutsController#new as HTML
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."name" = 'crossfit' LIMIT 1[0m
+  [1m[35mTemplate Load (0.3ms)[0m  SELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 ORDER BY name
+Rendered workouts/_form.html.erb (73.7ms)
+Rendered workouts/new.html.erb within layouts/application (77.1ms)
+Completed 200 OK in 116ms (Views: 80.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/workouts" for 127.0.0.1 at Mon May 23 01:44:44 -0700 2011
+  Processing by WorkoutsController#index as HTML
+  [1m[36mWorkout Load (0.4ms)[0m  [1mSELECT "workouts".* FROM "workouts"[0m
+Rendered workouts/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 13ms (Views: 6.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/workouts/new" for 127.0.0.1 at Mon May 23 01:44:48 -0700 2011
+  Processing by WorkoutsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."name" = 'crossfit' LIMIT 1
+  [1m[36mTemplate Load (0.3ms)[0m  [1mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 ORDER BY name[0m
+Rendered workouts/_form.html.erb (65.1ms)
+Rendered workouts/new.html.erb within layouts/application (68.5ms)
+Completed 200 OK in 157ms (Views: 71.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/workouts" for 127.0.0.1 at Mon May 23 01:44:51 -0700 2011
+  Processing by WorkoutsController#create as HTML
+  Parameters: {"commit"=>"Create Workout", "authenticity_token"=>"ZyuhYsQHcIQCv8+ZMSLCzTdJfxA4FEKt9BQWws6BgW0=", "utf8"=>"✓", "workout"=>{"template_id"=>"2"}}
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "workouts" ("name", "description", "entry_id", "updated_at", "created_at", "template_id") VALUES (NULL, NULL, NULL, '2011-05-23 08:44:51.737576', '2011-05-23 08:44:51.737576', 2)
+Redirected to http://localhost:3000/workouts/1
+Completed 302 Found in 109ms
+
+
+Started GET "/workouts/1" for 127.0.0.1 at Mon May 23 01:44:51 -0700 2011
+  Processing by WorkoutsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mWorkout Load (0.1ms)[0m  [1mSELECT "workouts".* FROM "workouts" WHERE "workouts"."id" = 1 LIMIT 1[0m
+Rendered workouts/show.html.erb within layouts/application (78.8ms)
+Completed 200 OK in 125ms (Views: 116.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/workouts" for 127.0.0.1 at Mon May 23 01:44:54 -0700 2011
+  Processing by WorkoutsController#index as HTML
+  [1m[35mWorkout Load (0.4ms)[0m  SELECT "workouts".* FROM "workouts"
+Rendered workouts/index.html.erb within layouts/application (58.0ms)
+Completed 200 OK in 69ms (Views: 61.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/workouts/1" for 127.0.0.1 at Mon May 23 01:45:23 -0700 2011
+  Processing by WorkoutsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ZyuhYsQHcIQCv8+ZMSLCzTdJfxA4FEKt9BQWws6BgW0=", "id"=>"1"}
+  [1m[36mWorkout Load (0.1ms)[0m  [1mSELECT "workouts".* FROM "workouts" WHERE "workouts"."id" = 1 LIMIT 1[0m
+  [1m[35mExercise Load (0.2ms)[0m  SELECT "exercises".* FROM "exercises" WHERE ("exercises".exerciseable_id = 1 AND "exercises".exerciseable_type = 'Workout')
+  [1m[36mAREL (0.2ms)[0m  [1mDELETE FROM "workouts" WHERE "workouts"."id" = 1[0m
+Redirected to http://localhost:3000/workouts
+Completed 302 Found in 67ms
+
+
+Started GET "/workouts" for 127.0.0.1 at Mon May 23 01:45:23 -0700 2011
+  Processing by WorkoutsController#index as HTML
+  [1m[35mWorkout Load (0.3ms)[0m  SELECT "workouts".* FROM "workouts"
+Rendered workouts/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 13ms (Views: 5.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/workouts/new" for 127.0.0.1 at Mon May 23 01:53:24 -0700 2011
+  Processing by WorkoutsController#new as HTML
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."name" = 'crossfit' LIMIT 1
+  [1m[36mTemplate Load (0.4ms)[0m  [1mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 ORDER BY name[0m
+Rendered workouts/_form.html.erb (68.8ms)
+Rendered workouts/new.html.erb within layouts/application (72.1ms)
+Completed 200 OK in 190ms (Views: 75.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/workouts" for 127.0.0.1 at Mon May 23 01:53:30 -0700 2011
+  Processing by WorkoutsController#create as HTML
+  Parameters: {"commit"=>"Create Workout", "authenticity_token"=>"ZyuhYsQHcIQCv8+ZMSLCzTdJfxA4FEKt9BQWws6BgW0=", "utf8"=>"✓", "workout"=>{"template_id"=>"2"}}
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "workouts" ("description", "template_id", "updated_at", "entry_id", "created_at", "name") VALUES (NULL, 2, '2011-05-23 08:53:30.696517', NULL, '2011-05-23 08:53:30.696517', NULL)
+Redirected to http://localhost:3000/workouts/2
+Completed 302 Found in 136ms
+
+
+Started GET "/workouts/2" for 127.0.0.1 at Mon May 23 01:53:30 -0700 2011
+  Processing by WorkoutsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mWorkout Load (0.1ms)[0m  [1mSELECT "workouts".* FROM "workouts" WHERE "workouts"."id" = 2 LIMIT 1[0m
+Rendered workouts/show.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 22ms (Views: 14.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/workouts" for 127.0.0.1 at Mon May 23 01:53:33 -0700 2011
+  Processing by WorkoutsController#index as HTML
+  [1m[35mWorkout Load (0.4ms)[0m  SELECT "workouts".* FROM "workouts"
+Rendered workouts/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 77ms (Views: 15.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/workouts/2" for 127.0.0.1 at Mon May 23 01:53:35 -0700 2011
+  Processing by WorkoutsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mWorkout Load (0.1ms)[0m  [1mSELECT "workouts".* FROM "workouts" WHERE "workouts"."id" = 2 LIMIT 1[0m
+Rendered workouts/show.html.erb within layouts/application (62.3ms)
+Completed 200 OK in 73ms (Views: 65.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/workouts/2/edit" for 127.0.0.1 at Mon May 23 01:53:38 -0700 2011
+  Processing by WorkoutsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mWorkout Load (0.1ms)[0m  SELECT "workouts".* FROM "workouts" WHERE "workouts"."id" = 2 LIMIT 1
+Rendered workouts/_form.html.erb (82.3ms)
+Rendered workouts/edit.html.erb within layouts/application (83.5ms)
+Completed   in 103ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.map):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label "Load from template" %><br />
+    16:     <%= f.collection_select :template_id, @templates, :id, :name %>
+    17:     <!--%= f.text_field :template_id %-->
+    18:   </div>
+    19:   <div class="actions">
+  app/views/workouts/_form.html.erb:16:in `_app_views_workouts__form_html_erb___1546456168_69939578619120_1073470'
+  app/views/workouts/_form.html.erb:1:in `_app_views_workouts__form_html_erb___1546456168_69939578619120_1073470'
+  app/views/workouts/edit.html.erb:3:in `_app_views_workouts_edit_html_erb___177123650_69939578635820_0'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.0ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.0ms)
+
+
+Started GET "/workouts" for 127.0.0.1 at Mon May 23 02:22:32 -0700 2011
+  Processing by WorkoutsController#index as HTML
+  [1m[36mWorkout Load (0.5ms)[0m  [1mSELECT "workouts".* FROM "workouts"[0m
+Rendered workouts/index.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 104ms (Views: 70.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/workouts/2" for 127.0.0.1 at Mon May 23 02:22:35 -0700 2011
+  Processing by WorkoutsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ZyuhYsQHcIQCv8+ZMSLCzTdJfxA4FEKt9BQWws6BgW0=", "id"=>"2"}
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mWorkout Load (0.1ms)[0m  [1mSELECT "workouts".* FROM "workouts" WHERE "workouts"."id" = 2 LIMIT 1[0m
+  [1m[35mExercise Load (0.2ms)[0m  SELECT "exercises".* FROM "exercises" WHERE ("exercises".exerciseable_id = 2 AND "exercises".exerciseable_type = 'Workout')
+  [1m[36mAREL (0.2ms)[0m  [1mDELETE FROM "workouts" WHERE "workouts"."id" = 2[0m
+Redirected to http://localhost:3000/workouts
+Completed 302 Found in 146ms
+
+
+Started GET "/workouts" for 127.0.0.1 at Mon May 23 02:22:35 -0700 2011
+  Processing by WorkoutsController#index as HTML
+  [1m[35mWorkout Load (0.3ms)[0m  SELECT "workouts".* FROM "workouts"
+Rendered workouts/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 13ms (Views: 5.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/workouts/new" for 127.0.0.1 at Mon May 23 02:22:35 -0700 2011
+  Processing by WorkoutsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."name" = 'crossfit' LIMIT 1[0m
+  [1m[35mTemplate Load (0.3ms)[0m  SELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 ORDER BY name
+Rendered workouts/_form.html.erb (61.6ms)
+Rendered workouts/new.html.erb within layouts/application (64.9ms)
+  [1m[36mTemplate Load (0.2ms)[0m  [1mSELECT "templates".* FROM "templates" WHERE "templates"."name" = 'Custom' LIMIT 1[0m
+Completed 200 OK in 165ms (Views: 68.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/workouts" for 127.0.0.1 at Mon May 23 02:22:38 -0700 2011
+  Processing by WorkoutsController#create as HTML
+  Parameters: {"commit"=>"Create Workout", "authenticity_token"=>"ZyuhYsQHcIQCv8+ZMSLCzTdJfxA4FEKt9BQWws6BgW0=", "utf8"=>"✓", "workout"=>{"template_id"=>"1"}}
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "workouts" ("updated_at", "description", "template_id", "name", "entry_id", "created_at") VALUES ('2011-05-23 09:22:38.770125', NULL, 1, NULL, NULL, '2011-05-23 09:22:38.770125')
+Redirected to http://localhost:3000/workouts/3
+Completed 302 Found in 63ms
+
+
+Started GET "/workouts/3" for 127.0.0.1 at Mon May 23 02:22:38 -0700 2011
+  Processing by WorkoutsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mWorkout Load (0.2ms)[0m  [1mSELECT "workouts".* FROM "workouts" WHERE "workouts"."id" = 3 LIMIT 1[0m
+Rendered workouts/show.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 76ms (Views: 13.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/workouts" for 127.0.0.1 at Mon May 23 02:22:40 -0700 2011
+  Processing by WorkoutsController#index as HTML
+  [1m[35mWorkout Load (0.4ms)[0m  SELECT "workouts".* FROM "workouts"
+Rendered workouts/index.html.erb within layouts/application (59.5ms)
+Completed 200 OK in 70ms (Views: 62.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/workouts/3" for 127.0.0.1 at Mon May 23 02:22:47 -0700 2011
+  Processing by WorkoutsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mWorkout Load (0.1ms)[0m  [1mSELECT "workouts".* FROM "workouts" WHERE "workouts"."id" = 3 LIMIT 1[0m
+Rendered workouts/show.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 22ms (Views: 14.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/workouts" for 127.0.0.1 at Mon May 23 02:22:48 -0700 2011
+  Processing by WorkoutsController#index as HTML
+  [1m[35mWorkout Load (0.4ms)[0m  SELECT "workouts".* FROM "workouts"
+Rendered workouts/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 22ms (Views: 13.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/workouts/3/edit" for 127.0.0.1 at Mon May 23 02:22:50 -0700 2011
+  Processing by WorkoutsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mWorkout Load (0.1ms)[0m  [1mSELECT "workouts".* FROM "workouts" WHERE "workouts"."id" = 3 LIMIT 1[0m
+Rendered workouts/_form.html.erb (61.0ms)
+Rendered workouts/edit.html.erb within layouts/application (62.2ms)
+Completed   in 73ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.map):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label "Load from template" %><br />
+    16:     <%= f.collection_select :template_id, @templates, :id, :name %>
+    17:     <!--%= f.text_field :template_id %-->
+    18:   </div>
+    19:   <div class="actions">
+  app/views/workouts/_form.html.erb:16:in `_app_views_workouts__form_html_erb___1546456168_70232855124920_1073470'
+  app/views/workouts/_form.html.erb:1:in `_app_views_workouts__form_html_erb___1546456168_70232855124920_1073470'
+  app/views/workouts/edit.html.erb:3:in `_app_views_workouts_edit_html_erb___177123650_70232855139360_0'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.8ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.3ms)
+
+
+Started POST "/workouts/3" for 127.0.0.1 at Mon May 23 02:23:00 -0700 2011
+  Processing by WorkoutsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ZyuhYsQHcIQCv8+ZMSLCzTdJfxA4FEKt9BQWws6BgW0=", "id"=>"3"}
+  [1m[35mWorkout Load (0.1ms)[0m  SELECT "workouts".* FROM "workouts" WHERE "workouts"."id" = 3 LIMIT 1
+  [1m[36mExercise Load (0.2ms)[0m  [1mSELECT "exercises".* FROM "exercises" WHERE ("exercises".exerciseable_id = 3 AND "exercises".exerciseable_type = 'Workout')[0m
+  [1m[35mAREL (0.2ms)[0m  DELETE FROM "workouts" WHERE "workouts"."id" = 3
+Redirected to http://localhost:3000/workouts
+Completed 302 Found in 129ms
+
+
+Started GET "/workouts" for 127.0.0.1 at Mon May 23 02:23:00 -0700 2011
+  Processing by WorkoutsController#index as HTML
+  [1m[36mWorkout Load (0.3ms)[0m  [1mSELECT "workouts".* FROM "workouts"[0m
+Rendered workouts/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 13ms (Views: 5.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/workouts" for 127.0.0.1 at Mon May 23 02:24:38 -0700 2011
+  Processing by WorkoutsController#index as HTML
+  [1m[36mWorkout Load (0.5ms)[0m  [1mSELECT "workouts".* FROM "workouts"[0m
+Rendered workouts/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 90ms (Views: 57.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/workouts/new" for 127.0.0.1 at Mon May 23 02:24:40 -0700 2011
+  Processing by WorkoutsController#new as HTML
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."name" = 'crossfit' LIMIT 1[0m
+  [1m[35mTemplate Load (0.3ms)[0m  SELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 ORDER BY name
+Rendered workouts/_form.html.erb (74.4ms)
+Rendered workouts/new.html.erb within layouts/application (77.8ms)
+Completed 200 OK in 117ms (Views: 81.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/workouts" for 127.0.0.1 at Mon May 23 02:24:41 -0700 2011
+  Processing by WorkoutsController#create as HTML
+  Parameters: {"commit"=>"Create Workout", "authenticity_token"=>"ZyuhYsQHcIQCv8+ZMSLCzTdJfxA4FEKt9BQWws6BgW0=", "utf8"=>"✓", "workout"=>{"template_id"=>"1"}}
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "workouts" ("updated_at", "name", "description", "template_id", "entry_id", "created_at") VALUES ('2011-05-23 09:24:41.402894', 'something', NULL, 1, NULL, '2011-05-23 09:24:41.402894')[0m
+Redirected to http://localhost:3000/workouts/4
+Completed 302 Found in 89ms
+
+
+Started GET "/workouts/4" for 127.0.0.1 at Mon May 23 02:24:41 -0700 2011
+  Processing by WorkoutsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mWorkout Load (0.1ms)[0m  SELECT "workouts".* FROM "workouts" WHERE "workouts"."id" = 4 LIMIT 1
+Rendered workouts/show.html.erb within layouts/application (61.4ms)
+Completed 200 OK in 73ms (Views: 64.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/workouts" for 127.0.0.1 at Mon May 23 02:24:43 -0700 2011
+  Processing by WorkoutsController#index as HTML
+  [1m[36mWorkout Load (0.4ms)[0m  [1mSELECT "workouts".* FROM "workouts"[0m
+Rendered workouts/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 22ms (Views: 14.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/workouts/4" for 127.0.0.1 at Mon May 23 02:24:45 -0700 2011
+  Processing by WorkoutsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ZyuhYsQHcIQCv8+ZMSLCzTdJfxA4FEKt9BQWws6BgW0=", "id"=>"4"}
+  [1m[35mWorkout Load (0.1ms)[0m  SELECT "workouts".* FROM "workouts" WHERE "workouts"."id" = 4 LIMIT 1
+  [1m[36mExercise Load (0.2ms)[0m  [1mSELECT "exercises".* FROM "exercises" WHERE ("exercises".exerciseable_id = 4 AND "exercises".exerciseable_type = 'Workout')[0m
+  [1m[35mAREL (0.2ms)[0m  DELETE FROM "workouts" WHERE "workouts"."id" = 4
+Redirected to http://localhost:3000/workouts
+Completed 302 Found in 73ms
+
+
+Started GET "/workouts" for 127.0.0.1 at Mon May 23 02:24:46 -0700 2011
+  Processing by WorkoutsController#index as HTML
+  [1m[36mWorkout Load (0.3ms)[0m  [1mSELECT "workouts".* FROM "workouts"[0m
+Rendered workouts/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 13ms (Views: 5.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/workouts" for 127.0.0.1 at Mon May 23 02:33:21 -0700 2011
+  Processing by WorkoutsController#index as HTML
+  [1m[36mWorkout Load (0.5ms)[0m  [1mSELECT "workouts".* FROM "workouts"[0m
+Rendered workouts/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 89ms (Views: 57.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/workouts/new" for 127.0.0.1 at Mon May 23 02:33:22 -0700 2011
+  Processing by WorkoutsController#new as HTML
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."name" = 'crossfit' LIMIT 1[0m
+  [1m[35mTemplate Load (0.3ms)[0m  SELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 ORDER BY name
+Rendered workouts/_form.html.erb (74.1ms)
+Rendered workouts/new.html.erb within layouts/application (77.4ms)
+Completed 200 OK in 116ms (Views: 80.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/workouts" for 127.0.0.1 at Mon May 23 02:33:23 -0700 2011
+  Processing by WorkoutsController#create as HTML
+  Parameters: {"commit"=>"Create Workout", "authenticity_token"=>"ZyuhYsQHcIQCv8+ZMSLCzTdJfxA4FEKt9BQWws6BgW0=", "utf8"=>"✓", "workout"=>{"template_id"=>"1"}}
+Completed   in 20ms
+
+NameError (undefined local variable or method `template_id' for #<WorkoutsController:0x7fd84ec602b8>):
+  app/controllers/workouts_controller.rb:47:in `create'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.8ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.1ms)
+
+
+Started POST "/workouts" for 127.0.0.1 at Mon May 23 02:34:07 -0700 2011
+  Processing by WorkoutsController#create as HTML
+  Parameters: {"commit"=>"Create Workout", "authenticity_token"=>"ZyuhYsQHcIQCv8+ZMSLCzTdJfxA4FEKt9BQWws6BgW0=", "utf8"=>"✓", "workout"=>{"template_id"=>"1"}}
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mTemplate Load (0.2ms)[0m  SELECT "templates".* FROM "templates" WHERE "templates"."id" = 1 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "workouts" ("created_at", "name", "description", "template_id", "updated_at", "entry_id") VALUES ('2011-05-23 09:34:08.212690', 'Angie', 'For time
+Complete all reps of each exercise before moving to the next', 1, '2011-05-23 09:34:08.212690', NULL)[0m
+Redirected to http://localhost:3000/workouts/5
+Completed 302 Found in 183ms
+
+
+Started GET "/workouts/5" for 127.0.0.1 at Mon May 23 02:34:08 -0700 2011
+  Processing by WorkoutsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mWorkout Load (0.2ms)[0m  SELECT "workouts".* FROM "workouts" WHERE "workouts"."id" = 5 LIMIT 1
+Rendered workouts/show.html.erb within layouts/application (58.4ms)
+Completed 200 OK in 70ms (Views: 61.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/workouts" for 127.0.0.1 at Mon May 23 02:34:42 -0700 2011
+  Processing by WorkoutsController#index as HTML
+  [1m[36mWorkout Load (0.4ms)[0m  [1mSELECT "workouts".* FROM "workouts"[0m
+Rendered workouts/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 23ms (Views: 15.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/workouts/5" for 127.0.0.1 at Mon May 23 02:35:41 -0700 2011
+  Processing by WorkoutsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ZyuhYsQHcIQCv8+ZMSLCzTdJfxA4FEKt9BQWws6BgW0=", "id"=>"5"}
+  [1m[35mWorkout Load (0.2ms)[0m  SELECT "workouts".* FROM "workouts" WHERE "workouts"."id" = 5 LIMIT 1
+  [1m[36mExercise Load (0.2ms)[0m  [1mSELECT "exercises".* FROM "exercises" WHERE ("exercises".exerciseable_id = 5 AND "exercises".exerciseable_type = 'Workout')[0m
+  [1m[35mAREL (0.2ms)[0m  DELETE FROM "workouts" WHERE "workouts"."id" = 5
+Redirected to http://localhost:3000/workouts
+Completed 302 Found in 72ms
+
+
+Started GET "/workouts" for 127.0.0.1 at Mon May 23 02:35:41 -0700 2011
+  Processing by WorkoutsController#index as HTML
+  [1m[36mWorkout Load (0.3ms)[0m  [1mSELECT "workouts".* FROM "workouts"[0m
+Rendered workouts/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 13ms (Views: 5.5ms | ActiveRecord: 0.3ms)

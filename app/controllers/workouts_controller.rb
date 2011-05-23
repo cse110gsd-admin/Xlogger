@@ -43,7 +43,11 @@ class WorkoutsController < ApplicationController
   # POST /workouts.xml
   def create
     @workout = Workout.new(params[:workout])
-
+    if @workout.template_id != nil
+      @template = Template.find(@workout.template_id)
+      @workout.attributes = { :name => @template.name, 
+        :description => @template.description }
+    end
     respond_to do |format|
       if @workout.save
         format.html { redirect_to(@workout, :notice => 'Workout was successfully created.') }
@@ -82,4 +86,6 @@ class WorkoutsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  
 end
