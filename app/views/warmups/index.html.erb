@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Description</th>
+    <th>Entry</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,6 +12,7 @@
 <% @warmups.each do |warmup| %>
   <tr>
     <td><%= warmup.description %></td>
+    <td><%= warmup.entry_id %></td>
     <td><%= link_to 'Show', warmup %></td>
     <td><%= link_to 'Edit', edit_warmup_path(warmup) %></td>
     <td><%= link_to 'Destroy', warmup, :confirm => 'Are you sure?', :method => :delete %></td>

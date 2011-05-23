@@ -1,7 +1,5 @@
 class Template < ActiveRecord::Base
   belongs_to :user
-  
-  validates :name, :presence => true
-  
-  has_many :exercises, :dependent => :destroy  
+  has_many   :exercises, :as => :exerciseable, :dependent => :destroy
+  accepts_nested_attributes_for :exercises
 end

@@ -17,7 +17,6 @@ class User < ActiveRecord::Base
                         :format => { :with => email_regex } #checks that email is in email format
   
   has_many :entries,  :dependent => :destroy
-  has_many :workouts, :dependent => :destroy
   has_many :templates, :dependent => :destroy
   
   before_save :encrypt_password

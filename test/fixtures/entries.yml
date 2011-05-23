@@ -2,6 +2,8 @@
 
 one:
   date: 2011-05-22
+  user_id: 1
 
 two:
   date: 2011-05-22
+  user_id: 1

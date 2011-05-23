@@ -1,7 +1,5 @@
 class Workout < ActiveRecord::Base
-  
-  validates :name, :presence => true
-  
-  has_many :exercises, :dependent => :destroy
-  belongs_to :entry 
+  has_many   :exercises, :as => :exerciseable, :dependent => :destroy
+  accepts_nested_attributes_for :exercises
+  belongs_to :entry
 end

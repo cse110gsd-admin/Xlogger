@@ -10,23 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110523040138) do
+ActiveRecord::Schema.define(:version => 20110523051931) do
 
   create_table "entries", :force => true do |t|
     t.date     "date"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "exercises", :force => true do |t|
     t.string   "name"
     t.integer  "reps"
     t.integer  "weight"
+    t.integer  "exerciseable_id"
+    t.string   "exerciseable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "workout_id"
-    t.integer  "warmup_id"
   end
 
   create_table "templates", :force => true do |t|
@@ -41,26 +41,26 @@ ActiveRecord::Schema.define(:version => 20110523040138) do
     t.string   "name"
     t.string   "email"
     t.string   "password"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "encrypted_password"
     t.string   "salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "warmups", :force => true do |t|
     t.string   "description"
+    t.integer  "entry_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "entry_id"
   end
 
   create_table "workouts", :force => true do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "entry_id"
     t.integer  "template_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

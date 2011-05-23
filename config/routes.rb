@@ -1,17 +1,13 @@
 Xlogger::Application.routes.draw do
-  resources :templates
-
-  get "pages/home"
-
-  get "pages/contact"
-
-  resources :entries
+  resources :workouts
 
   resources :warmups
 
-  resources :workouts
+  resources :templates
 
   resources :exercises
+
+  resources :entries
 
   resources :users
 
