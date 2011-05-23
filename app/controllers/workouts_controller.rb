@@ -25,7 +25,9 @@ class WorkoutsController < ApplicationController
   # GET /workouts/new.xml
   def new
     @workout = Workout.new
-
+    # fetches all the crossfit templates ordered by name
+    @templates = Template.where(:user_id => 
+      User.find_by_name("crossfit").id).order(:name)
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @workout }
@@ -41,7 +43,21 @@ class WorkoutsController < ApplicationController
   # POST /workouts.xml
   def create
     @workout = Workout.new(params[:workout])
-
+    if @workout.template_id != nil
+      @template = Template.find(@workout.template_id)
+      if @template.name != "Custom"
+        @workout.attributes = { :name => @template.name, 
+          :description => @template.description }
+        @workout.save
+        @exercises = @template.exercises
+        @exercises.each do |@exercise|
+          @temp = @workout.exercises.create(:name => @exercise.name,
+                                    :reps => @exercise.reps,
+                                    :weight => @exercise.weight )
+          @temp.save
+        end
+      end
+    end
     respond_to do |format|
       if @workout.save
         format.html { redirect_to(@workout, :notice => 'Workout was successfully created.') }
@@ -80,4 +96,6 @@ class WorkoutsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  
 end

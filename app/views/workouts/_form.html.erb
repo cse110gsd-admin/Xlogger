@@ -12,12 +12,9 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= f.label "Load from template" %><br />
+    <%= f.collection_select :template_id, @templates, :id, :name %>
+    <!--%= f.text_field :template_id %-->
   </div>
   <div class="actions">
     <%= f.submit %>

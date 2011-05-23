@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Xlogger::Application.config.secret_token = 'f765cbe4a44533db15bcb238c8279d2209f5944e93d422c60c12516e00847a7a994452c619c9e587ba268e4b471caf54980e1f14899a0444aad1e33aae9a05d7'
+Xlogger::Application.config.secret_token = '38ab569025fa870e4f23fc1c689073d6b2025dfdcc372ef8a4809cd7e7a6f3f3ab9837e67b9e3ff27599f0921ce29d81ae0bb2bf67c805b17fc45696290e13bd'

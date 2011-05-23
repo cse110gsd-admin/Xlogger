@@ -10,6 +10,23 @@
   <%= @workout.description %>
 </p>
 
+<p>
+  <b>Entry:</b>
+  <%= @workout.entry_id %>
+</p>
+
+<p>
+  <b>Template:</b>
+  <%= @workout.template_id %>
+</p>
+
+<% @exercises = @workout.exercises %>
+<% @exercises.each do |@exercise| %>
+  <p><%= @exercise.name %><br />
+     <%= @exercise.reps %><br />
+     <%= @exercise.weight %><br />
+  </p>
+<% end %>
 
 <%= link_to 'Edit', edit_workout_path(@workout) %> |
 <%= link_to 'Back', workouts_path %>

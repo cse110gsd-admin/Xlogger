@@ -3,13 +3,15 @@ Xlogger::Application.routes.draw do
 
   get "pages/contact"
 
-  resources :entries
+  resources :workouts
 
   resources :warmups
 
-  resources :workouts
+  resources :templates
 
   resources :exercises
+
+  resources :entries
 
   resources :users
 

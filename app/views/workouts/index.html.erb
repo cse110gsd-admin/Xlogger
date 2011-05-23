@@ -4,6 +4,8 @@
   <tr>
     <th>Name</th>
     <th>Description</th>
+    <th>Entry</th>
+    <th>Template</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +15,8 @@
   <tr>
     <td><%= workout.name %></td>
     <td><%= workout.description %></td>
+    <td><%= workout.entry_id %></td>
+    <td><%= workout.template_id %></td>
     <td><%= link_to 'Show', workout %></td>
     <td><%= link_to 'Edit', edit_workout_path(workout) %></td>
     <td><%= link_to 'Destroy', workout, :confirm => 'Are you sure?', :method => :delete %></td>
