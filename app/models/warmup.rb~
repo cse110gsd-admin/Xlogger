@@ -1,4 +1,0 @@
-class Warmup < ActiveRecord::Base
-  has_many :exercises, :as => :exerciseable, :dependent => :destroy
-  belongs_to :entry
-end
