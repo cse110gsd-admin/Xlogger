@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-<<<<<<< HEAD
   include SessionsHelper
   
   # got these tips from
@@ -16,8 +15,4 @@ class ApplicationController < ActionController::Base
     ajax_request_types = ['text/javascript', 'application/json', 'text/xml']
     request.accepts.sort! { |x, y| ajax_request_types.include?(y.to_s) ? 1 : -1 } if request.xhr?
   end
-  
-  
-=======
->>>>>>> 26757e2a401091b80e8352c264b191333628db9b
 end
