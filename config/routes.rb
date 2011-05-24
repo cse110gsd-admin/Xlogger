@@ -1,5 +1,6 @@
 Xlogger::Application.routes.draw do
   get "pages/home"
+<<<<<<< HEAD
   get "pages/contact"
   get "pages/about"
   get "pages/help"
@@ -29,6 +30,22 @@ Xlogger::Application.routes.draw do
 
   root :to => 'pages#home' 
 
+=======
+
+  get "pages/contact"
+
+  resources :workouts
+
+  resources :warmups
+
+  resources :templates
+
+  resources :exercises
+
+  resources :entries
+
+  resources :users
+>>>>>>> 26757e2a401091b80e8352c264b191333628db9b
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

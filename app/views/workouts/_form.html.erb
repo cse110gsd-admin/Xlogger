@@ -11,6 +11,14 @@
     </div>
   <% end %>
 
+<<<<<<< HEAD
+=======
+  <div class="field">
+    <%= f.label "Load from template" %><br />
+    <%= f.collection_select :template_id, @templates, :id, :name %>
+    <!--%= f.text_field :template_id %-->
+  </div>
+>>>>>>> 26757e2a401091b80e8352c264b191333628db9b
   <div class="actions">
     <%= f.submit %>
   </div>

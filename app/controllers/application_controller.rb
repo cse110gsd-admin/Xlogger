@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+<<<<<<< HEAD
   include SessionsHelper
   
   # got these tips from
@@ -17,4 +18,6 @@ class ApplicationController < ActionController::Base
   end
   
   
+=======
+>>>>>>> 26757e2a401091b80e8352c264b191333628db9b
 end
