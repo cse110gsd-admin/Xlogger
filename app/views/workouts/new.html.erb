@@ -1,5 +1,9 @@
 <h1>New workout</h1>
+ <div class="field">
+    <%= f.label "Load from template" %><br />
+    <%= f.collection_select :template_id, @templates, :id, :name %>
+    <!--%= f.text_field :template_id %-->
+  </div>
+<!%= render 'form' %-->
 
-<%= render 'form' %>
-<%= @workout.template_id %>
 <%= link_to 'Back', workouts_path %>
